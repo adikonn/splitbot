@@ -1,5 +1,14 @@
 # SplitBot — распределение трат коллектива
 
+[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
+[![Claude](https://img.shields.io/badge/Claude-D97757?logo=claude&logoColor=fff)](#)
+[![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?logo=telegram&logoColor=white)](#)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+<a href="https://github.com/adikonn/splitbot/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=adikonn/splitbot" />
+</a>
+
 Telegram-бот: участники в течение месяца вносят траты и даты отсутствия, в начале
 следующего месяца бот рассылает расчёт, после подтверждения всеми — итоговую
 таблицу переводов «Кто → Кому → Сколько» с минимальным числом транзакций.
