@@ -33,6 +33,10 @@ python main.py
 `ADMIN_TG_ID` — ваш Telegram id (узнать: @userinfobot). Первый /start от этого
 id регистрирует администратора без заявки.
 
+Если Telegram заблокирован, задайте `PROXY_URL` в `.env` (http/https или socks5,
+напр. `socks5://user:pass@host:1080`). Для socks5 нужен пакет `aiohttp-socks`
+(уже в `requirements.txt`). Пустое значение — без прокси.
+
 ## Тесты
 
 141 тест, покрытие 99% (все модули 100%, кроме runtime-части `main()` с polling):

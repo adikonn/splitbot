@@ -6,6 +6,7 @@ import logging
 
 from aiogram import Bot, Dispatcher, Router
 from aiogram.client.default import DefaultBotProperties
+from aiogram.client.session.aiohttp import AiohttpSession
 from aiogram.enums import ParseMode
 
 from config import load_config
@@ -63,7 +64,12 @@ async def main() -> None:
     db = Database(config.db_path)
     await db.connect()
 
+    session = AiohttpSession(proxy=config.proxy_url) if config.proxy_url else None
+    if config.proxy_url:
+        log.info("Подключение к Telegram через прокси")
+
     bot = Bot(token=config.bot_token,
+              session=session,
               default=DefaultBotProperties(parse_mode=ParseMode.HTML))
     dp = build_dispatcher(db, config)
 

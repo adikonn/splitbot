@@ -50,6 +50,7 @@ def config(tmp_path):
         bot_token="1:test", admin_tg_id=ADMIN_TG,
         db_path=str(tmp_path / "t.sqlite3"), timezone="UTC",
         settle_day=1, settle_hour=10, remind_hour=12,
+        proxy_url=None,
     )
 
 

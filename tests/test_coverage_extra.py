@@ -40,8 +40,17 @@ def test_load_config_ok(monkeypatch):
     monkeypatch.setenv("BOT_TOKEN", "1:abc")
     monkeypatch.setenv("ADMIN_TG_ID", "42")
     monkeypatch.setenv("SETTLE_DAY", "2")
+    monkeypatch.delenv("PROXY_URL", raising=False)
     cfg = load_config()
     assert cfg.bot_token == "1:abc" and cfg.admin_tg_id == 42 and cfg.settle_day == 2
+    assert cfg.proxy_url is None
+
+
+def test_load_config_proxy(monkeypatch):
+    monkeypatch.setenv("BOT_TOKEN", "1:abc")
+    monkeypatch.setenv("ADMIN_TG_ID", "42")
+    monkeypatch.setenv("PROXY_URL", "socks5://h:1080")
+    assert load_config().proxy_url == "socks5://h:1080"
 
 
 def test_load_config_missing_token(monkeypatch):
